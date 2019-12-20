@@ -55,13 +55,17 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 // Enter your template code here.
 const log = require('logToConsole');
 const injectScript = require('injectScript');
-log('data =', data);
-
-injectScript("https://sak.userreport.com/" + data.accountId + "/launcher.js", function() {
-  log('UserReport loaded');
-  data.gtmOnSuccess();
-}, data.gtmOnFailure);
-
+const  encodeUriComponent = require('encodeUriComponent');
+log('UserReport config =', data);
+if (data.accountId) {
+  injectScript("https://sak.userreport.com/" + encodeUriComponent(data.accountId) + "/launcher.js", function() {
+    log('UserReport loaded');
+    data.gtmOnSuccess();
+  }, data.gtmOnFailure);
+} else {
+  log('Account ID is not provided, can not intialize UserReport');
+  data.gtmOnFailure();
+}
 
 
 
@@ -92,7 +96,23 @@ ___WEB_PERMISSIONS___
         "publicId": "inject_script",
         "versionId": "1"
       },
-      "param": []
+      "param": [
+        {
+          "key": "urls",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 1,
+                "string": "https://sak.userreport.com/*"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   }

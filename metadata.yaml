@@ -1,5 +1,7 @@
 homepage: "https://www.userreport.com"
 documentation: "https://helpdesk.userreport.com/hc/en-us/articles/209409726-Install-UserReport-in-Google-Tag-Manager"
 versions:
+  - sha: 7e18611d0a25082986a21a63e663de49423a82ca
+    changeNotes: Made permissions more explicit and improved logging
   - sha: e3d3afcf8cba93e191b329536142b670e9086f5c
     changeNotes: Initial release.

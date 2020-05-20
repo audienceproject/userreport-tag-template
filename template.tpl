@@ -14,11 +14,14 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "UserReport",
-  "categories": ["SURVEY", "ANALYTICS"],
+  "categories": [
+    "SURVEY",
+    "ANALYTICS"
+  ],
   "brand": {
     "id": "audienceproject_userreport",
     "displayName": "UserReport by AudienceProject",
-    "thumbnail": "data:image/png;base64,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\u003d"
+    "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAMFBMVEVHcExJRddKRdZJRdZJRdZJRdZLRddJRdZKRtZJRNZJRdZKRdZJRdRJRdVJRdZJRdbE/oZ6AAAAEHRSTlMANXCdr7wI5/8h1FYSf/OJNWFykwAAAfpJREFUeNrtl+tuwzAIRsEXfHfe/22naVlRR+NsDpZWKefnV4lTTEMduLm5ufmXoLHOT+GsQTiBTIiXCIZgQMrxMjkN6oeoQDg2+KiChwNKVKIMGljZAj3GlP0UOccdglcgNzgHHzIOP60wTR1+R8P9zcGnbOAVbf8ULrCXaLfg/QQVscpETZDcZ+ySTHQE2L/yjjLRENQQd0KViYJgiw82mSgIMpfLMlEQdC7XZaIgCFwuyERB4Lick4mCoHC5IhMFAdi4Y18kGgKyezWSidIuws25DWXyBtu0wC/AC4LmKpxQXbogqL0bGl/3u4MpAWehJTggtRAjTgt4M3uDog9C43mfzgr4PtmzbaUgpoRYSrO57+uULgpgiyM6wlUBuSjQ3UXk4yFG5UmuR4Ze4KJgPIeguIswR4GtoCcgMD8UDtXvpmi/Hd23uubyW7GUgkhLb9c093+w/h1t/Vsm77WtEkxBdRu+J0OPgodTDmxAh9fYeEgofxHYAwHGAR5/L0A4bGHERgPBuAG5mcfnNBZ4gkPIxiE+nQsswQi0/eSchoJuEU7BYtr2TBDn1L6FTDMFYRIy/en3xALQItmn544FeqBnQygsUKQEVnRlgRyFEKiOggF10KsL5CikYN0oYA3JLhbwKGAdJSwU8CiAWTMKWAzCzc3NzTvwAWmiTTMYiL2XAAAAAElFTkSuQmCC"
   },
   "description": "Installs UserReport to your websites",
   "containerContexts": [
@@ -31,42 +34,185 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
+    "type": "SELECT",
+    "name": "action",
+    "displayName": "Action",
+    "macrosInSelect": false,
+    "selectItems": [
+      {
+        "value": "init",
+        "displayValue": "Initialize account"
+      },
+      {
+        "value": "trackSection",
+        "displayValue": "Manually track section pageview"
+      }
+    ],
+    "simpleValueType": true,
+    "defaultValue": "init"
+  },
+  {
     "type": "TEXT",
     "name": "accountId",
-    "displayName": "UserReport account ID",
+    "displayName": "Account ID",
     "simpleValueType": true,
-    "help": "You can get it in your account script. For instance in https://sak.userreport.com/my-account/launcher.js it is \"my-account\"",
-    "alwaysInSummary": false,
+    "help": "You can get it from media tiles page, for instance in “https://app.userreport.com/accountId/media” it is “accountId”",
+    "alwaysInSummary": true,
     "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      },
       {
         "type": "REGEX",
         "args": [
-          "^[a-z0-9_-]+$"
-        ],
-        "errorMessage": "Account ID looks invalid - it consists only from digits, letters and period."
+          "^[\\w-+]+$"
+        ]
+      }
+    ],
+    "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "init",
+        "type": "EQUALS"
       }
     ]
+  },
+  {
+    "type": "GROUP",
+    "name": "advancedGroup",
+    "displayName": "Advanced params",
+    "groupStyle": "ZIPPY_OPEN",
+    "subParams": [
+      {
+        "type": "TEXT",
+        "name": "mediaId",
+        "displayName": "Media ID",
+        "simpleValueType": true,
+        "help": "You can get it from media edit page, for instance in “https://app.userreport.com/accountId/media/mediaId” it is “mediaId”",
+        "alwaysInSummary": false,
+        "valueValidators": [
+          {
+            "type": "REGEX",
+            "args": [
+              "^[0-9a-z]{8}(?:-[0-9a-z]{4}){3}-[0-9a-z]{12}$"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TEXT",
+        "name": "sectionId",
+        "displayName": "Section ID",
+        "simpleValueType": true,
+        "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”",
+        "alwaysInSummary": false,
+        "valueValidators": [
+          {
+            "type": "REGEX",
+            "args": [
+              "^[0-9a-z]{8}(?:-[0-9a-z]{4}){3}-[0-9a-z]{12}$"
+            ]
+          }
+        ]
+      }
+    ],
+    "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "init",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
+    "type": "TEXT",
+    "name": "manualSectionId",
+    "displayName": "Section ID",
+    "simpleValueType": true,
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      },
+      {
+        "type": "REGEX",
+        "args": [
+          "^[0-9a-z]{8}(?:-[0-9a-z]{4}){3}-[0-9a-z]{12}$"
+        ]
+      }
+    ],
+    "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”",
+    "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "trackSection",
+        "type": "EQUALS"
+      }
+    ],
+    "alwaysInSummary": false
   }
 ]
 
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-// Enter your template code here.
-const log = require('logToConsole');
+const logToConsole = require('logToConsole');
+const createQueue = require('createQueue');
+const encodeUriComponent = require('encodeUriComponent');
 const injectScript = require('injectScript');
-const  encodeUriComponent = require('encodeUriComponent');
-log('UserReport config =', data);
-if (data.accountId) {
-  injectScript("https://sak.userreport.com/" + encodeUriComponent(data.accountId) + "/launcher.js", function() {
-    log('UserReport loaded');
-    data.gtmOnSuccess();
-  }, data.gtmOnFailure);
-} else {
-  log('Account ID is not provided, can not intialize UserReport');
-  data.gtmOnFailure();
+
+if (data.action === 'init') {
+  logToConsole('Initializing account');
+
+  if (data.accountId) {
+    logToConsole('Account ID is ' + data.accountId);
+
+    const urqPush = createQueue('_urq');
+    if (data.mediaId) {
+      urqPush(['setMediaId', data.mediaId]);
+      logToConsole('Media ID is ' + data.mediaId);
+    }
+    if (data.sectionId) {
+      urqPush(['setSectionId', data.sectionId]);
+      logToConsole('Section ID is ' + data.sectionId);
+    }
+
+    const scriptHref = 'https://sak.userreport.com/' + encodeUriComponent(data.accountId) + '/launcher.js';
+    logToConsole('Injecting UserReport script from ' + scriptHref);
+
+    injectScript(scriptHref, () => {
+      data.gtmOnSuccess();
+      logToConsole('UserReport script loaded');
+    }, () => {
+      data.gtmOnFailure();
+      logToConsole('UserReport script failed');
+    }, 'userreport');
+  } else {
+    data.gtmOnFailure();
+    logToConsole('Account ID is not provided');
+  }
 }
 
+else if (data.action === 'trackSection') {
+  logToConsole('Tracking section pageview');
+
+  if (data.manualSectionId) {
+    const urqPush = createQueue('_urq');
+
+    urqPush(['trackSectionPageView', data.manualSectionId]);
+    logToConsole('Section ID is ' + data.manualSectionId);
+
+    data.gtmOnSuccess();
+    logToConsole('Section pageview tracked');
+  } else {
+    data.gtmOnFailure();
+    logToConsole('Section ID is not provided');
+  }
+}
+
+else {
+  data.gtmOnFailure();
+  logToConsole('Unknown action called');
+}
 
 
 ___WEB_PERMISSIONS___
@@ -115,17 +261,158 @@ ___WEB_PERMISSIONS___
       "isEditedByUser": true
     },
     "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "access_globals",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "keys",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "_urq"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
   }
 ]
 
 
 ___TESTS___
 
-scenarios: []
+scenarios:
+- name: No action
+  code: |-
+    runCode();
+
+    assertApi('gtmOnSuccess').wasNotCalled();
+    assertApi('gtmOnFailure').wasCalled();
+- name: Init / Account ID is missing
+  code: |-
+    runCode({
+      action: 'init',
+    });
+
+    assertApi('gtmOnSuccess').wasNotCalled();
+    assertApi('gtmOnFailure').wasCalled();
+- name: Init / Account ID is provided
+  code: |-
+    mock('injectScript', (url, onSuccess) => {
+      onSuccess();
+    });
+
+    runCode({
+      action: 'init',
+      accountId: 'audienceproject',
+    });
+
+    assertApi('createQueue').wasCalledWith('_urq');
+    assertApi('injectScript').wasCalled();
+
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+- name: Init / Script loaded for media
+  code: |-
+    mock('injectScript', (url, onSuccess) => {
+      onSuccess();
+    });
+
+    runCode({
+      action: 'init',
+      accountId: 'audienceproject',
+      mediaId: '1',
+    });
+
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+- name: Init / Script loaded for section
+  code: |-
+    mock('injectScript', (url, onSuccess) => {
+      onSuccess();
+    });
+
+    runCode({
+      action: 'init',
+      accountId: 'audienceproject',
+      mediaId: '1',
+      sectionId: '2',
+    });
+
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+- name: Init / Script failed
+  code: "mock('injectScript', (url, onSuccess, onFailure, cache) => {\n  assertThat(cache).isEqualTo('userreport');\n\
+    \  \n  onFailure();\n});\n\nrunCode({\n  action: 'init',\n  accountId: 'audienceproject',\n\
+    });\n\nassertApi('gtmOnSuccess').wasNotCalled();\nassertApi('gtmOnFailure').wasCalled();"
+- name: Track section / Section ID is missing
+  code: |-
+    runCode({
+      action: 'trackSection',
+    });
+
+    assertApi('gtmOnSuccess').wasNotCalled();
+    assertApi('gtmOnFailure').wasCalled();
+- name: Track section / Section ID is provided
+  code: |-
+    runCode({
+      action: 'trackSection',
+      manualSectionId: '3',
+    });
+
+    assertApi('createQueue').wasCalledWith('_urq');
+
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
 
 
 ___NOTES___
 
-Created on 12/16/2019, 5:10:44 AM
-
-
+Created on 5/20/2020, 4:46:03 PM

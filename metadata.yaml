@@ -1,6 +1,8 @@
 homepage: "https://www.userreport.com"
 documentation: "https://helpdesk.userreport.com/hc/en-us/articles/360037520252-Install-UserReport-script-with-Google-Tag-Manager"
 versions:
+  - sha: 1439142bcf0f7264ba086838ed3fd90da2c5a687
+    changeNotes: Add cookie storage consent
   - sha: 4a7998eb35fe93dc1ab3c1d88e7b243f5aca2445
     changeNotes: Add mediaId and sectionId fields
   - sha: 7e18611d0a25082986a21a63e663de49423a82ca

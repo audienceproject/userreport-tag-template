@@ -23,7 +23,7 @@ ___INFO___
     "displayName": "UserReport by AudienceProject",
     "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAMFBMVEVHcExJRddKRdZJRdZJRdZJRdZLRddJRdZKRtZJRNZJRdZKRdZJRdRJRdVJRdZJRdbE/oZ6AAAAEHRSTlMANXCdr7wI5/8h1FYSf/OJNWFykwAAAfpJREFUeNrtl+tuwzAIRsEXfHfe/22naVlRR+NsDpZWKefnV4lTTEMduLm5ufmXoLHOT+GsQTiBTIiXCIZgQMrxMjkN6oeoQDg2+KiChwNKVKIMGljZAj3GlP0UOccdglcgNzgHHzIOP60wTR1+R8P9zcGnbOAVbf8ULrCXaLfg/QQVscpETZDcZ+ySTHQE2L/yjjLRENQQd0KViYJgiw82mSgIMpfLMlEQdC7XZaIgCFwuyERB4Lick4mCoHC5IhMFAdi4Y18kGgKyezWSidIuws25DWXyBtu0wC/AC4LmKpxQXbogqL0bGl/3u4MpAWehJTggtRAjTgt4M3uDog9C43mfzgr4PtmzbaUgpoRYSrO57+uULgpgiyM6wlUBuSjQ3UXk4yFG5UmuR4Ze4KJgPIeguIswR4GtoCcgMD8UDtXvpmi/Hd23uubyW7GUgkhLb9c093+w/h1t/Vsm77WtEkxBdRu+J0OPgodTDmxAh9fYeEgofxHYAwHGAR5/L0A4bGHERgPBuAG5mcfnNBZ4gkPIxiE+nQsswQi0/eSchoJuEU7BYtr2TBDn1L6FTDMFYRIy/en3xALQItmn544FeqBnQygsUKQEVnRlgRyFEKiOggF10KsL5CikYN0oYA3JLhbwKGAdJSwU8CiAWTMKWAzCzc3NzTvwAWmiTTMYiL2XAAAAAElFTkSuQmCC"
   },
-  "description": "Installs UserReport to your websites",
+  "description": "Installs UserReport to your websites.",
   "containerContexts": [
     "WEB"
   ]
@@ -56,7 +56,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "accountId",
     "displayName": "Account ID",
     "simpleValueType": true,
-    "help": "You can get it from media tiles page, for instance in “https://app.userreport.com/accountId/media” it is “accountId”",
+    "help": "You can get it from media tiles page, for instance in “https://app.userreport.com/accountId/media” it is “accountId”.",
     "alwaysInSummary": true,
     "valueValidators": [
       {
@@ -88,7 +88,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "mediaId",
         "displayName": "Media ID",
         "simpleValueType": true,
-        "help": "You can get it from media edit page, for instance in “https://app.userreport.com/accountId/media/mediaId” it is “mediaId”",
+        "help": "You can get it from media edit page, for instance in “https://app.userreport.com/accountId/media/mediaId” it is “mediaId”.",
         "alwaysInSummary": false,
         "valueValidators": [
           {
@@ -104,7 +104,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "sectionId",
         "displayName": "Section ID",
         "simpleValueType": true,
-        "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”",
+        "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”.",
         "alwaysInSummary": false,
         "valueValidators": [
           {
@@ -114,6 +114,21 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ]
+      },
+      {
+        "type": "SELECT",
+        "name": "consentStorageDisabled",
+        "displayName": "Disable cookie storage consent",
+        "macrosInSelect": true,
+        "selectItems": [
+          {
+            "value": "",
+            "displayValue": "No (default)"
+          }
+        ],
+        "simpleValueType": true,
+        "help": "To be used in combination with a dynamic cookie consent framework. This variable should contain a value indicating whether the user consented to cookie storage or not. This is not relevant when using a Consent Management Platform (CMP).",
+        "defaultValue": ""
       }
     ],
     "enablingConditions": [
@@ -140,7 +155,7 @@ ___TEMPLATE_PARAMETERS___
         ]
       }
     ],
-    "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”",
+    "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”.",
     "enablingConditions": [
       {
         "paramName": "action",
@@ -174,6 +189,12 @@ if (data.action === 'init') {
     if (data.sectionId) {
       urqPush(['setSectionId', data.sectionId]);
       logToConsole('Section ID is ' + data.sectionId);
+    }
+    if (data.consentStorageDisabled) {
+      urqPush(['setConsents', {
+        storage: false
+      }]);
+      logToConsole('Storage consent is disabled');
     }
 
     const scriptHref = 'https://sak.userreport.com/' + encodeUriComponent(data.accountId) + '/launcher.js';
@@ -415,4 +436,4 @@ scenarios:
 
 ___NOTES___
 
-Created on 5/20/2020, 4:46:03 PM
+Created on 8/18/2020, 5:10:25 PM

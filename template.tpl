@@ -14,10 +14,6 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "UserReport",
-  "categories": [
-    "SURVEY",
-    "ANALYTICS"
-  ],
   "brand": {
     "id": "audienceproject_userreport",
     "displayName": "UserReport by AudienceProject",
@@ -26,6 +22,10 @@ ___INFO___
   "description": "Installs UserReport to your websites.",
   "containerContexts": [
     "WEB"
+  ],
+  "categories": [
+    "SURVEY",
+    "ANALYTICS"
   ]
 }
 

@@ -40,12 +40,16 @@ ___TEMPLATE_PARAMETERS___
     "macrosInSelect": false,
     "selectItems": [
       {
-        "value": "init",
-        "displayValue": "Initialize account"
+        "value": "initialize",
+        "displayValue": "Initialize"
       },
       {
         "value": "trackSection",
-        "displayValue": "Manually track section pageview"
+        "displayValue": "Track section"
+      },
+      {
+        "value": "setUserId",
+        "displayValue": "Set user ID"
       }
     ],
     "simpleValueType": true,
@@ -72,82 +76,19 @@ ___TEMPLATE_PARAMETERS___
     "enablingConditions": [
       {
         "paramName": "action",
-        "paramValue": "init",
-        "type": "EQUALS"
-      }
-    ]
-  },
-  {
-    "type": "GROUP",
-    "name": "advancedGroup",
-    "displayName": "Advanced params",
-    "groupStyle": "ZIPPY_OPEN",
-    "subParams": [
-      {
-        "type": "TEXT",
-        "name": "mediaId",
-        "displayName": "Media ID",
-        "simpleValueType": true,
-        "help": "You can get it from media edit page, for instance in “https://app.userreport.com/accountId/media/mediaId” it is “mediaId”.",
-        "alwaysInSummary": false,
-        "valueValidators": [
-          {
-            "type": "REGEX",
-            "args": [
-              "^[0-9a-z]{8}(?:-[0-9a-z]{4}){3}-[0-9a-z]{12}$"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "TEXT",
-        "name": "sectionId",
-        "displayName": "Section ID",
-        "simpleValueType": true,
-        "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”.",
-        "alwaysInSummary": false,
-        "valueValidators": [
-          {
-            "type": "REGEX",
-            "args": [
-              "^[0-9a-z]{8}(?:-[0-9a-z]{4}){3}-[0-9a-z]{12}$"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "SELECT",
-        "name": "consentStorageDisabled",
-        "displayName": "Disable cookie storage consent",
-        "macrosInSelect": true,
-        "selectItems": [
-          {
-            "value": "",
-            "displayValue": "No (default)"
-          }
-        ],
-        "simpleValueType": true,
-        "help": "To be used in combination with a dynamic cookie consent framework. This variable should contain a value indicating whether the user consented to cookie storage or not. This is not relevant when using a Consent Management Platform (CMP).",
-        "defaultValue": ""
-      }
-    ],
-    "enablingConditions": [
-      {
-        "paramName": "action",
-        "paramValue": "init",
+        "paramValue": "initialize",
         "type": "EQUALS"
       }
     ]
   },
   {
     "type": "TEXT",
-    "name": "manualSectionId",
-    "displayName": "Section ID",
+    "name": "mediaId",
+    "displayName": "Media ID",
     "simpleValueType": true,
+    "help": "You can get it from media edit page, for instance in “https://app.userreport.com/accountId/media/mediaId” it is “mediaId”.",
+    "alwaysInSummary": false,
     "valueValidators": [
-      {
-        "type": "NON_EMPTY"
-      },
       {
         "type": "REGEX",
         "args": [
@@ -155,15 +96,98 @@ ___TEMPLATE_PARAMETERS___
         ]
       }
     ],
-    "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”.",
     "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "initialize",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
+    "type": "TEXT",
+    "name": "sectionId",
+    "displayName": "Section ID",
+    "simpleValueType": true,
+    "help": "You can get it from section edit page, for instance in “https://app.userreport.com/accountId/media/mediaId/sections/sectionId” it is “sectionId”.",
+    "alwaysInSummary": false,
+    "valueValidators": [
+      {
+        "type": "REGEX",
+        "args": [
+          "^[0-9a-z]{8}(?:-[0-9a-z]{4}){3}-[0-9a-z]{12}$"
+        ]
+      }
+    ],
+    "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "initialize",
+        "type": "EQUALS"
+      },
       {
         "paramName": "action",
         "paramValue": "trackSection",
         "type": "EQUALS"
       }
+    ]
+  },
+  {
+    "type": "SELECT",
+    "name": "consentStorageDisabled",
+    "displayName": "Disable cookie storage consent",
+    "macrosInSelect": true,
+    "selectItems": [
+      {
+        "value": "",
+        "displayValue": "No (default)"
+      }
     ],
-    "alwaysInSummary": false
+    "simpleValueType": true,
+    "help": "To be used in combination with a dynamic cookie consent framework. This variable should contain a value indicating whether the user consented to cookie storage or not. This is not relevant when using a Consent Management Platform (CMP).",
+    "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "initialize",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
+    "type": "SIMPLE_TABLE",
+    "name": "userId",
+    "displayName": "User IDs",
+    "simpleTableColumns": [
+      {
+        "defaultValue": "",
+        "displayName": "Type",
+        "name": "type",
+        "type": "TEXT",
+        "isUnique": true,
+        "valueHint": "User ID type"
+      },
+      {
+        "defaultValue": "",
+        "displayName": "Id",
+        "name": "id",
+        "type": "TEXT",
+        "isUnique": true,
+        "valueHint": "User ID value"
+      }
+    ],
+    "enablingConditions": [
+      {
+        "paramName": "action",
+        "paramValue": "initialize",
+        "type": "EQUALS"
+      },
+      {
+        "paramName": "action",
+        "paramValue": "setUserId",
+        "type": "EQUALS"
+      }
+    ],
+    "help": "Custom user IDs pair with type and ID."
   }
 ]
 
@@ -172,29 +196,44 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const logToConsole = require('logToConsole');
 const createQueue = require('createQueue');
+const JSON = require('JSON');
 const encodeUriComponent = require('encodeUriComponent');
 const injectScript = require('injectScript');
 
-if (data.action === 'init') {
-  logToConsole('Initializing account');
+const reduceUserIds = array => array.reduce((memo, object) => {
+  memo[object.type] = object.id;
+  return memo;
+}, {});
+
+if (data.action === 'initialize') {
+  logToConsole('Initializing');
 
   if (data.accountId) {
     logToConsole('Account ID is ' + data.accountId);
 
     const urqPush = createQueue('_urq');
+
     if (data.mediaId) {
       urqPush(['setMediaId', data.mediaId]);
       logToConsole('Media ID is ' + data.mediaId);
     }
+
     if (data.sectionId) {
       urqPush(['setSectionId', data.sectionId]);
       logToConsole('Section ID is ' + data.sectionId);
     }
+
     if (data.consentStorageDisabled) {
       urqPush(['setConsents', {
         storage: false
       }]);
       logToConsole('Storage consent is disabled');
+    }
+
+    if (data.userId) {
+      const userIds = reduceUserIds(data.userId);
+      urqPush(['setUserId', userIds]);
+      logToConsole('User IDs is ' + JSON.stringify(userIds));
     }
 
     const scriptHref = 'https://sak.userreport.com/' + encodeUriComponent(data.accountId) + '/launcher.js';
@@ -214,19 +253,36 @@ if (data.action === 'init') {
 }
 
 else if (data.action === 'trackSection') {
-  logToConsole('Tracking section pageview');
+  logToConsole('Tracking section');
 
-  if (data.manualSectionId) {
+  if (data.sectionId) {
     const urqPush = createQueue('_urq');
 
-    urqPush(['trackSectionPageView', data.manualSectionId]);
-    logToConsole('Section ID is ' + data.manualSectionId);
+    urqPush(['trackSectionPageView', data.sectionId]);
+    logToConsole('Section ID is ' + data.sectionId);
 
     data.gtmOnSuccess();
     logToConsole('Section pageview tracked');
   } else {
     data.gtmOnFailure();
     logToConsole('Section ID is not provided');
+  }
+}
+
+else if (data.action === 'setUserId') {
+  logToConsole('Setting user ID');
+
+  if (data.userId) {
+    const urqPush = createQueue('_urq');
+
+    const userIds = reduceUserIds(data.userId);
+    urqPush(['setUserId', userIds]);
+    logToConsole('User ID is ' + JSON.stringify(userIds));
+
+    data.gtmOnSuccess();
+  } else {
+    data.gtmOnFailure();
+    logToConsole('User ID is not provided');
   }
 }
 
@@ -254,6 +310,9 @@ ___WEB_PERMISSIONS___
           }
         }
       ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   },
@@ -356,22 +415,22 @@ scenarios:
 
     assertApi('gtmOnSuccess').wasNotCalled();
     assertApi('gtmOnFailure').wasCalled();
-- name: Init / Account ID is missing
+- name: Initialize / Account ID is missing
   code: |-
     runCode({
-      action: 'init',
+      action: 'initialize',
     });
 
     assertApi('gtmOnSuccess').wasNotCalled();
     assertApi('gtmOnFailure').wasCalled();
-- name: Init / Account ID is provided
+- name: Initialize / Account ID is provided
   code: |-
     mock('injectScript', (url, onSuccess) => {
       onSuccess();
     });
 
     runCode({
-      action: 'init',
+      action: 'initialize',
       accountId: 'audienceproject',
     });
 
@@ -380,28 +439,28 @@ scenarios:
 
     assertApi('gtmOnSuccess').wasCalled();
     assertApi('gtmOnFailure').wasNotCalled();
-- name: Init / Script loaded for media
+- name: Initialize / Script loaded for media
   code: |-
     mock('injectScript', (url, onSuccess) => {
       onSuccess();
     });
 
     runCode({
-      action: 'init',
+      action: 'initialize',
       accountId: 'audienceproject',
       mediaId: '1',
     });
 
     assertApi('gtmOnSuccess').wasCalled();
     assertApi('gtmOnFailure').wasNotCalled();
-- name: Init / Script loaded for section
+- name: Initialize / Script loaded for section
   code: |-
     mock('injectScript', (url, onSuccess) => {
       onSuccess();
     });
 
     runCode({
-      action: 'init',
+      action: 'initialize',
       accountId: 'audienceproject',
       mediaId: '1',
       sectionId: '2',
@@ -409,9 +468,9 @@ scenarios:
 
     assertApi('gtmOnSuccess').wasCalled();
     assertApi('gtmOnFailure').wasNotCalled();
-- name: Init / Script failed
+- name: Initialize / Script failed
   code: "mock('injectScript', (url, onSuccess, onFailure, cache) => {\n  assertThat(cache).isEqualTo('userreport');\n\
-    \  \n  onFailure();\n});\n\nrunCode({\n  action: 'init',\n  accountId: 'audienceproject',\n\
+    \  \n  onFailure();\n});\n\nrunCode({\n  action: 'initialize',\n  accountId: 'audienceproject',\n\
     });\n\nassertApi('gtmOnSuccess').wasNotCalled();\nassertApi('gtmOnFailure').wasCalled();"
 - name: Track section / Section ID is missing
   code: |-
@@ -425,7 +484,26 @@ scenarios:
   code: |-
     runCode({
       action: 'trackSection',
-      manualSectionId: '3',
+      sectionId: '3',
+    });
+
+    assertApi('createQueue').wasCalledWith('_urq');
+
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+- name: Set user ID / User ID is missing
+  code: |-
+    runCode({
+      action: 'setUserId',
+    });
+
+    assertApi('gtmOnSuccess').wasNotCalled();
+    assertApi('gtmOnFailure').wasCalled();
+- name: Set user ID / User ID is provided
+  code: |-
+    runCode({
+      action: 'setUserId',
+      userId: [{ type: 'type1', id: 'id1' }],
     });
 
     assertApi('createQueue').wasCalledWith('_urq');

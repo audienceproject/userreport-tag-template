@@ -1,6 +1,8 @@
 homepage: "https://www.userreport.com"
 documentation: "https://helpdesk.userreport.com/hc/en-us/articles/360037520252-Install-UserReport-script-with-Google-Tag-Manager"
 versions:
+  - sha: 0d376709bb780c31919a4878e6c7fbffcfb67933
+    changeNotes: Add custom user IDs support and rename template fields
   - sha: ba689c652b241ed22121fe1db37ac04308619600
     changeNotes: Fix template preview
   - sha: 1439142bcf0f7264ba086838ed3fd90da2c5a687

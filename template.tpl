@@ -205,6 +205,8 @@ const reduceUserIds = array => array.reduce((memo, object) => {
   return memo;
 }, {});
 
+const checkFalsyValue = (value) => value && !['false', '0', 'no', 'null', 'undefined', 'NaN'].includes(value);
+
 if (data.action === 'initialize') {
   logToConsole('Initializing');
 
@@ -223,7 +225,7 @@ if (data.action === 'initialize') {
       logToConsole('Section ID is ' + data.sectionId);
     }
 
-    if (data.consentStorageDisabled) {
+    if (checkFalsyValue(data.consentStorageDisabled)) {
       urqPush(['setConsents', {
         storage: false
       }]);

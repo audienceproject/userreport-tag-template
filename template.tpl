@@ -205,7 +205,7 @@ const reduceUserIds = array => array.reduce((memo, object) => {
   return memo;
 }, {});
 
-const checkFalsyValue = (value) => value && !['false', '0', 'no', 'null', 'undefined', 'NaN'].includes(value);
+const checkFalsyValue = (value) => value && ['false', '0', 'no', 'null', 'undefined', 'NaN'].indexOf(value) === -1;
 
 if (data.action === 'initialize') {
   logToConsole('Initializing');
@@ -218,11 +218,15 @@ if (data.action === 'initialize') {
     if (data.mediaId) {
       urqPush(['setMediaId', data.mediaId]);
       logToConsole('Media ID is ' + data.mediaId);
+    } else {
+      logToConsole('Media ID is not set');
     }
 
     if (data.sectionId) {
       urqPush(['setSectionId', data.sectionId]);
       logToConsole('Section ID is ' + data.sectionId);
+    } else {
+      logToConsole('Section ID is not set');
     }
 
     if (checkFalsyValue(data.consentStorageDisabled)) {
@@ -230,12 +234,16 @@ if (data.action === 'initialize') {
         storage: false
       }]);
       logToConsole('Storage consent is disabled');
+    } else {
+      logToConsole('Storage consent is enabled');
     }
 
     if (data.userId) {
       const userIds = reduceUserIds(data.userId);
       urqPush(['setUserId', userIds]);
-      logToConsole('User IDs is ' + JSON.stringify(userIds));
+      logToConsole('User ID is ' + JSON.stringify(userIds));
+    } else {
+      logToConsole('User ID is not set');
     }
 
     const scriptHref = 'https://sak.userreport.com/' + encodeUriComponent(data.accountId) + '/launcher.js';

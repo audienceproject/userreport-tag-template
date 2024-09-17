@@ -1,6 +1,8 @@
 homepage: "https://www.userreport.com"
 documentation: "https://helpdesk.userreport.com/hc/en-us/articles/360037520252-Install-UserReport-script-with-Google-Tag-Manager"
 versions:
+  - sha: 8950a447fbd64f0cc55cf1f745627a550e523b20
+    changeNotes: Update falsy values validation and improve logging
   - sha: 18670b34b60d1d84cdfb76ecddf76cd83f1b6d70
     changeNotes: Check falsy values for storage consent disable field
   - sha: 0d376709bb780c31919a4878e6c7fbffcfb67933
